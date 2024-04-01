@@ -17,7 +17,8 @@ async function runChat(prompt) {
     return data; // Return the data
   } catch (error) {
     console.error('Error communicating with the API:', error);
-    throw error; // Rethrow or handle error as needed
+    const { data } = "CANT HELP";
+    return data;
   }
 }
 

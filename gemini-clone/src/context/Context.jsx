@@ -32,7 +32,9 @@ const ContextProvider = (props) => {
         setResultData('')
         setLoading(true)
         setShowResult(true)
+
         let responseObject;
+
         if (prompt !== undefined) {
             responseObject = await runChat(prompt);
             setRecentPrompt(prompt)
@@ -40,6 +42,11 @@ const ContextProvider = (props) => {
             setPrevPrompts(prev=>[...prev,input])
             setRecentPrompt(input)
             responseObject = await runChat(input)
+        }
+
+        if (responseObject == undefined) {
+            setResultData("Sorry, I can't complete that request. Please try again.");
+            setLoading(false);
         }
 
         let response = responseObject.text
@@ -63,6 +70,8 @@ const ContextProvider = (props) => {
         //setResultData(response)
         setLoading(false)
     }
+    
+
     
 
 
