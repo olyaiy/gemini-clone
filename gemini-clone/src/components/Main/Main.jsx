@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react';
 import "./Main.css"
 import { assets } from '../../assets/assets'
 import { Context } from '../../context/Context'
 
+
 const Main = () => {
 
   const {onSent,recentPrompt,showResult,loading,resultData,input,setInput} = useContext(Context)
+
 
   return (
     <div className="main">
@@ -18,7 +20,7 @@ const Main = () => {
       {!showResult
       ?<>
         <div className="greet">
-            <p><span>Hello, Dev</span></p>
+            <p><span>Hello there!</span></p>
             <p>How can I help you today?</p>
         </div>
         <div className="cards">
@@ -53,8 +55,10 @@ const Main = () => {
             <hr />
             <hr />
           </div>
-          :<p dangerouslySetInnerHTML={{__html:resultData.text}}></p>
-        }
+          
+          :<p dangerouslySetInnerHTML={{__html:resultData}}></p>
+        }  
+
         </div>
       </div>
       }
@@ -62,12 +66,25 @@ const Main = () => {
   
         <div className="main-bottom">
             <div className="search-box">
-                <input onChange={(e)=>setInput(e.target.value)} value={input} type="text" placeholder='Enter a prompt here'/>
-                <div>
-                    <img src={assets.gallery_icon} alt="" />
-                    <img src={assets.mic_icon} alt="" />
-                    <img onClick={()=>onSent()} src={assets.send_icon} alt="" />
-                </div>
+            <textarea
+              onChange={(e) => setInput(e.target.value)}
+              value={input}
+              placeholder='Enter a prompt here'
+              onKeyDown={(e) => {
+                if (input === '' && e.key === 'Enter') {
+                  e.preventDefault();
+                  } else if (e.key === 'Enter' && !e.shiftKey ) {
+                      e.preventDefault();  // Prevent default to avoid a new line on enter key
+                      onSent();
+                  }
+              }}
+            />
+
+                  <div>
+                      <img src={assets.gallery_icon} alt="" />
+                      <img src={assets.mic_icon} alt="" />
+                      <img onClick={()=>onSent()} src={assets.send_icon} alt="" />
+                  </div>
             </div>
             <p className="bottom-info">
             Gemini may display inaccurate info, including about people, so double-check its responses. Your privacy & Gemini Apps

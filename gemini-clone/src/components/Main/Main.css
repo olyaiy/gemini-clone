@@ -97,6 +97,27 @@
     cursor: pointer;
 }
 
+.search-box textarea{
+    flex: 1;
+    max-height: 40px;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 8px;
+    margin: none;
+    resize: none;
+    overflow: auto;
+    line-height: normal;
+    white-space: pre-wrap; 
+    word-break: break-word;
+    font-size: 18px; 
+}
+
+.search-box textarea::-webkit-scrollbar {
+    display: none;
+}
+
+
 .search-box input{
     flex: 1;
     border: none;
