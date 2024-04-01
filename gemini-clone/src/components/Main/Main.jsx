@@ -87,8 +87,9 @@ const Main = () => {
                   </div>
             </div>
             <p className="bottom-info">
-            Gemini may display inaccurate info, including about people, so double-check its responses. Your privacy & Gemini Apps
+              This project was made by <a href="https://www.linkedin.com/in/olyaiy" >Alex!</a> View the source code and more details in this <a href="https://github.com/olyaiy/gemini-clone" >github repository.</a>
             </p>
+
         </div>
       </div>
     </div>
