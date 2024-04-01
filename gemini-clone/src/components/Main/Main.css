@@ -5,6 +5,7 @@
     position: relative;
 }
 
+
 .main .nav{
     display: flex;
     justify-content: space-between;
@@ -197,4 +198,20 @@
     font-size: 17px;
     font-weight: 300;
     line-height: 1.8;
+}
+
+@media (max-width:600px){
+    .main-bottom textarea{
+        flex:none;
+        width: 150px;
+    }
+    .main-bottom img{
+        width: 20px;
+    }
+    .search-box{
+        padding: 5px 10px;
+    }
+    .search-box{
+        gap: 5px;
+    }
 }

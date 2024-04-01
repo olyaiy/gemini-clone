@@ -7,19 +7,23 @@ const ContextProvider = (props) => {
 
     const [input, setInput] = useState('');
     const [recentPrompt, setRecentPrompt] = useState('');
-    const [prevPrompt, setPrevPrompts] = useState([]);
+    const [prevPrompt, setPrevPrompts] = useState(["what is React.js?"]);
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState('');
 
-
-    /*
+    
     const delayPara = (index, nextWord) => {
 		setTimeout(function () {
 			setResultData((prev) => prev + nextWord);
-		}, 10 * index);
+		}, 20 * index);
 	};
-    */
+
+    const newChat = () => {
+        setLoading(false)
+        setShowResult(false)
+    }
+    
 
     const onSent = async (prompt) => {
 
@@ -28,10 +32,16 @@ const ContextProvider = (props) => {
         setResultData('')
         setLoading(true)
         setShowResult(true)
-        setRecentPrompt(input)
+        let responseObject;
+        if (prompt !== undefined) {
+            responseObject = await runChat(prompt);
+            setRecentPrompt(prompt)
+        } else {
+            setPrevPrompts(prev=>[...prev,input])
+            setRecentPrompt(input)
+            responseObject = await runChat(input)
+        }
 
-        // Run the chat function and wait for the response
-        const responseObject = await runChat(input)
         let response = responseObject.text
 
         // Replace ** with strong tags
@@ -45,7 +55,12 @@ const ContextProvider = (props) => {
 
         
         // Set the result data and hide loading
-        setResultData(response)
+        let newResponseArray = response.split(" ")
+        for (let i=0; i<newResponseArray.length; i++) {
+            delayPara(i, newResponseArray[i] + " ")
+        }
+
+        //setResultData(response)
         setLoading(false)
     }
     
@@ -62,7 +77,8 @@ const ContextProvider = (props) => {
         loading,
         resultData,     
         input,
-        setInput
+        setInput,
+        newChat
     }
 
     return (
