@@ -4,7 +4,7 @@ import {assets} from '../../assets/assets'
 
 const Sidebar = () => {
 
-    const[extended, setExtended] = useState(false)
+    const[extended, setExtended] = useState(true)
 
   return (
     <div className='sidebar'>
@@ -30,15 +30,15 @@ const Sidebar = () => {
       </div>
       <div className="bottom">
         <div className="bottom-item recent-entry">
-            <img src={assets.question_icon} alt="" srcset="" />
+            <img src={assets.question_icon} alt="" srcSet="" />
             {extended?<p>Help</p>:null}
         </div>
         <div className="bottom-item recent-entry">
-            <img src={assets.history_icon} alt="" srcset="" />
+            <img src={assets.history_icon} alt="" srcSet="" />
             {extended?<p>Activity</p>:null}
         </div>
         <div className="bottom-item recent-entry">
-            <img src={assets.setting_icon} alt="" srcset="" />
+            <img src={assets.setting_icon} alt="" srcSet="" />
             {extended?<p>Settings</p>:null}
         </div>
       </div>
