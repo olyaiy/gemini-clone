@@ -27,10 +27,10 @@ To get a local copy up and running follow these simple steps.
 ### Installation
 
 1. Clone the repository:
-git clone (https://github.com/olyaiy/gemini-clone.git)
+```git clone (https://github.com/olyaiy/gemini-clone.git)```
 
 2. Navigate to the project directory:
-cd gemini-clone
+```cd gemini-clone```
 
 3. Install project dependencies using npm:
 ```npm install``` Or using yarn: ```yarn```
