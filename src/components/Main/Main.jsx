@@ -27,7 +27,7 @@ const Main = () => {
       ?<>
         <div className="greet">
             <p><span>Hello there!</span></p>
-            <p>How can I help you today?</p>
+            <p className="sub-heading">How can I help you today?</p>
         </div>
         <div className="cards">
             <div onClick={()=> {
@@ -44,7 +44,7 @@ const Main = () => {
             </div>
             <div onClick={()=> {
               loadPrompt("Brainstorm team bonding activities for our work retreat");
-            }} className="card">
+            }} className="card card-4">
                 <p>Brainstorm team bonding activities for our work retreat</p>
                 <img src={assets.message_icon} alt="" />
             </div>
@@ -55,6 +55,7 @@ const Main = () => {
                 <img src={assets.code_icon} alt="" />
             </div>
         </div>
+        
       </>
       :<div className="result">
         <div className="result-title">
@@ -67,7 +68,7 @@ const Main = () => {
           ?<div className="loader">
             <hr />
             <hr className = "hr2"/>
-            <hr lassName = "hr3"/>
+            <hr className = "hr3"/>
           </div>
           
           :<p dangerouslySetInnerHTML={{__html:resultData}}></p>
