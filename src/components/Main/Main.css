@@ -216,7 +216,7 @@
 
 @media (max-width:600px){
     .main-bottom textarea{
-        flex:none;
+        flex: 1;
         width: 150px;
     }
     .main-bottom img{
@@ -227,5 +227,20 @@
     }
     .search-box{
         gap: 5px;
+    }
+
+    .main .card{
+        height: 110px;
+        padding: 15px;
+        background-color: #f0f4f9;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .main .greet{
+    
+        margin-bottom: 0px;
+        margin-top: 10px;
     }
 }

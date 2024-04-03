@@ -1,0 +1,16 @@
+# Dependency directories
+node_modules/
+
+# Environment secrets
+.env
+
+# Build output
+/dist
+/build
+
+# Logs
+*.log
+
+# Other common ignores
+.DS_Store
+*.swp
