@@ -1,4 +1,4 @@
-# a Simple Gemini Clone
+# Simple Gemini Clone
 
 ## Introduction
 
